@@ -1,38 +1,83 @@
-.App {
-  text-align: center;
+@import "tailwindcss";
+
+/* 1. Modern Reset & Smooth Experience */
+html {
+  scroll-behavior: smooth;
+  /* Prevents layout shift when scrollbar appears */
+  scrollbar-gutter: stable;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  margin: 0;
+  /* Using a slightly softer font stack for a premium feel */
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f8fafc; /* Slate-50 */
+  color: #1e293b; /* Slate-800 */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* 2. Custom Text Selection (Matches your Blue theme) */
+::selection {
+  background-color: #dbeafe; /* blue-100 */
+  color: #1e40af; /* blue-800 */
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/* 3. The "Glass" Effect Utility 
+   Useful for floating elements like Navbars or Popups
+*/
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.App-link {
-  color: #61dafb;
+/* 4. Refined Typography for the .prose class 
+   This makes your blog content look like a real magazine.
+*/
+.prose {
+  line-height: 1.8;
+  letter-spacing: -0.01em;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Add a subtle "Drop Cap" to the first letter of a blog post */
+.prose > p:first-of-type::first-letter {
+  float: left;
+  font-size: 4rem;
+  line-height: 1;
+  font-weight: 900;
+  margin-right: 0.75rem;
+  color: #2563eb; /* blue-600 */
+  text-transform: uppercase;
+}
+
+/* 5. Custom Scrollbar (Slim & Subtle) */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* 6. Page Transitions 
+   Add this class to your <main> in App.js for a fade-in effect
+*/
+.fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }

@@ -1,13 +1,58 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import "tailwindcss";
+
+@theme {
+  /* Adding a custom soft-dark color for better contrast than pure black */
+  --color-ink: #0f172a;
 }
 
+body {
+  margin: 0;
+  /* Updated font stack for a cleaner, modern look */
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.75; /* Increased for better legibility */
+  color: #334155; /* Slate-700: softer on the eyes than gray-800 */
+  background-color: #f8fafc; /* Very light slate background */
+}
+
+/* Container for blog content to prevent lines from being too wide to read */
+.prose {
+  max-width: 65ch; /* The "Golden Range" for reading comfort */
+  margin-inline: auto;
+  color: #334155;
+}
+
+.prose p {
+  margin-bottom: 1.75rem;
+  letter-spacing: -0.011em; /* Subtle modern tightening */
+}
+
+/* Spicing up the Headers */
+.prose h1, .prose h2, .prose h3 {
+  color: var(--color-ink);
+  font-weight: 800;
+  line-height: 1.2;
+  margin-top: 2.5rem;
+  margin-bottom: 1.25rem;
+  letter-spacing: -0.025em; /* "Display" style tracking */
+}
+
+.prose h1 { font-size: 2.5rem; }
+.prose h2 { font-size: 1.875rem; }
+
+/* Spicing up Code Blocks */
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  background-color: #f1f5f9;
+  padding: 0.2rem 0.4rem;
+  border-radius: 6px;
+  font-size: 0.875em;
+  color: #e11d48; /* Rose-600 for a pop of color on inline code */
+}
+
+/* Modern Selection Highlight */
+::selection {
+  background-color: #dcfce7; /* Light green highlight */
+  color: #166534;
 }
